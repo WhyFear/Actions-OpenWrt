@@ -2040,7 +2040,7 @@ CONFIG_PACKAGE_kmod-lib-textsearch=y
 # CONFIG_PACKAGE_kmod-ebtables-ipv4 is not set
 # CONFIG_PACKAGE_kmod-ebtables-ipv6 is not set
 # CONFIG_PACKAGE_kmod-ebtables-watchers is not set
-# CONFIG_PACKAGE_kmod-ip6tables is not set
+CONFIG_PACKAGE_kmod-ip6tables=y
 # CONFIG_PACKAGE_kmod-ip6tables-extra is not set
 # CONFIG_PACKAGE_kmod-ipt-account is not set
 # CONFIG_PACKAGE_kmod-ipt-chaos is not set
@@ -2091,21 +2091,21 @@ CONFIG_PACKAGE_kmod-ipt-raw=y
 # CONFIG_PACKAGE_kmod-ipt-sysrq is not set
 # CONFIG_PACKAGE_kmod-ipt-tarpit is not set
 # CONFIG_PACKAGE_kmod-ipt-tee is not set
-# CONFIG_PACKAGE_kmod-ipt-tproxy is not set
+CONFIG_PACKAGE_kmod-ipt-tproxy=y
 # CONFIG_PACKAGE_kmod-ipt-u32 is not set
 # CONFIG_PACKAGE_kmod-ipt-ulog is not set
 CONFIG_PACKAGE_kmod-nf-conntrack=y
 CONFIG_PACKAGE_kmod-nf-conntrack-netlink=y
 CONFIG_PACKAGE_kmod-nf-conntrack6=y
 CONFIG_PACKAGE_kmod-nf-ipt=y
-# CONFIG_PACKAGE_kmod-nf-ipt6 is not set
+CONFIG_PACKAGE_kmod-nf-ipt6=y
 # CONFIG_PACKAGE_kmod-nf-ipvs is not set
 CONFIG_PACKAGE_kmod-nf-nat=y
 # CONFIG_PACKAGE_kmod-nf-nat6 is not set
 CONFIG_PACKAGE_kmod-nf-nathelper=y
 CONFIG_PACKAGE_kmod-nf-nathelper-extra=y
 CONFIG_PACKAGE_kmod-nf-reject=y
-# CONFIG_PACKAGE_kmod-nf-reject6 is not set
+CONFIG_PACKAGE_kmod-nf-reject6=y
 CONFIG_PACKAGE_kmod-nfnetlink=y
 # CONFIG_PACKAGE_kmod-nfnetlink-log is not set
 # CONFIG_PACKAGE_kmod-nfnetlink-queue is not set
@@ -3496,7 +3496,7 @@ CONFIG_PACKAGE_liblua=y
 # CONFIG_PACKAGE_libmilter-sendmail is not set
 # CONFIG_PACKAGE_libminiupnpc is not set
 # CONFIG_PACKAGE_libmms is not set
-# CONFIG_PACKAGE_libmnl is not set
+CONFIG_PACKAGE_libmnl=y
 # CONFIG_PACKAGE_libmodbus is not set
 # CONFIG_PACKAGE_libmosquitto-nossl is not set
 # CONFIG_PACKAGE_libmosquitto-ssl is not set
@@ -3629,7 +3629,7 @@ CONFIG_PACKAGE_libuclient=y
 CONFIG_PACKAGE_libustream-openssl=y
 # CONFIG_PACKAGE_libustream-wolfssl is not set
 CONFIG_PACKAGE_libuuid=y
-# CONFIG_PACKAGE_libuv is not set
+CONFIG_PACKAGE_libuv=y
 # CONFIG_PACKAGE_libuvc is not set
 # CONFIG_PACKAGE_libv4l is not set
 # CONFIG_PACKAGE_libvorbis is not set
@@ -3772,6 +3772,7 @@ CONFIG_PACKAGE_luci-app-autoreboot=y
 # CONFIG_PACKAGE_luci-app-ddns is not set
 # CONFIG_PACKAGE_luci-app-diag-core is not set
 # CONFIG_PACKAGE_luci-app-dnscrypt-proxy is not set
+# CONFIG_PACKAGE_luci-app-dnsforwarder is not set
 # CONFIG_PACKAGE_luci-app-dump1090 is not set
 # CONFIG_PACKAGE_luci-app-dynapoint is not set
 # CONFIG_PACKAGE_luci-app-e2guardian is not set
@@ -3857,14 +3858,14 @@ CONFIG_PACKAGE_luci-app-ramfree=y
 # CONFIG_PACKAGE_luci-app-sqm is not set
 # CONFIG_PACKAGE_luci-app-squid is not set
 # CONFIG_PACKAGE_luci-app-ssr-libev-server is not set
-# CONFIG_PACKAGE_luci-app-ssr-plus is not set
+CONFIG_PACKAGE_luci-app-ssr-plus=y
 # CONFIG_PACKAGE_luci-app-ssr-plus_INCLUDE_Shadowsocks is not set
 # CONFIG_PACKAGE_luci-app-ssr-plus_INCLUDE_Simple_obfs is not set
 # CONFIG_PACKAGE_luci-app-ssr-plus_INCLUDE_V2ray_plugin is not set
 # CONFIG_PACKAGE_luci-app-ssr-plus_INCLUDE_V2ray is not set
 # CONFIG_PACKAGE_luci-app-ssr-plus_INCLUDE_Trojan is not set
 # CONFIG_PACKAGE_luci-app-ssr-plus_INCLUDE_Kcptun is not set
-CONFIG_PACKAGE_luci-app-ssr-plus_INCLUDE_ShadowsocksR_Server=y
+# CONFIG_PACKAGE_luci-app-ssr-plus_INCLUDE_ShadowsocksR_Server is not set
 CONFIG_PACKAGE_luci-app-ssr-plus_INCLUDE_ShadowsocksR_Socks=y
 # CONFIG_PACKAGE_luci-app-ssr-python-pro-server is not set
 # CONFIG_PACKAGE_luci-app-ssrserver-python is not set
@@ -3879,6 +3880,7 @@ CONFIG_PACKAGE_luci-app-ssr-plus_INCLUDE_ShadowsocksR_Socks=y
 # CONFIG_PACKAGE_luci-app-udpxy is not set
 # CONFIG_PACKAGE_luci-app-uhttpd is not set
 # CONFIG_PACKAGE_luci-app-unblockmusic is not set
+# CONFIG_PACKAGE_luci-app-unblockneteasemusic-go is not set
 # CONFIG_PACKAGE_luci-app-unblockneteasemusic-mini is not set
 # CONFIG_PACKAGE_luci-app-unbound is not set
 CONFIG_PACKAGE_luci-app-upnp=y
@@ -4229,7 +4231,7 @@ CONFIG_PACKAGE_iptables-mod-fullconenat=y
 # CONFIG_PACKAGE_iptables-mod-sysrq is not set
 # CONFIG_PACKAGE_iptables-mod-tarpit is not set
 # CONFIG_PACKAGE_iptables-mod-tee is not set
-# CONFIG_PACKAGE_iptables-mod-tproxy is not set
+CONFIG_PACKAGE_iptables-mod-tproxy=y
 # CONFIG_PACKAGE_iptables-mod-trace is not set
 # CONFIG_PACKAGE_iptables-mod-u32 is not set
 # CONFIG_PACKAGE_iptables-mod-ulog is not set
@@ -4722,7 +4724,7 @@ CONFIG_PACKAGE_relayd=y
 # CONFIG_PACKAGE_nginx-mod-luci is not set
 # CONFIG_PACKAGE_nginx-mod-luci-ssl is not set
 # CONFIG_PACKAGE_nginx-ssl is not set
-# CONFIG_PACKAGE_pdnsd-alt is not set
+CONFIG_PACKAGE_pdnsd-alt=y
 # CONFIG_PACKAGE_polipo is not set
 # CONFIG_PACKAGE_privoxy is not set
 # CONFIG_PACKAGE_radicale-py2 is not set
@@ -4740,7 +4742,7 @@ CONFIG_PACKAGE_relayd=y
 # CONFIG_PACKAGE_socksify is not set
 # CONFIG_PACKAGE_spawn-fcgi is not set
 # CONFIG_PACKAGE_squid is not set
-# CONFIG_PACKAGE_srelay is not set
+CONFIG_PACKAGE_srelay=y
 # CONFIG_PACKAGE_tinyproxy is not set
 CONFIG_PACKAGE_uhttpd=y
 # CONFIG_PACKAGE_uhttpd-mod-lua is not set
@@ -4816,6 +4818,7 @@ CONFIG_PACKAGE_uhttpd-mod-ubus=y
 # CONFIG_PACKAGE_darkstat is not set
 # CONFIG_PACKAGE_dhcpcd is not set
 # CONFIG_PACKAGE_dmapd is not set
+# CONFIG_PACKAGE_dnsforwarder is not set
 # CONFIG_PACKAGE_ds-lite is not set
 # CONFIG_PACKAGE_dsmboot is not set
 # CONFIG_PACKAGE_eapol-test is not set
@@ -4864,10 +4867,10 @@ CONFIG_PACKAGE_hostapd-common=y
 # CONFIG_PACKAGE_iperf3 is not set
 # CONFIG_PACKAGE_iperf3-ssl is not set
 # CONFIG_PACKAGE_ipip is not set
-# CONFIG_PACKAGE_ipset is not set
+CONFIG_PACKAGE_ipset=y
 # CONFIG_PACKAGE_ipset-dns is not set
 # CONFIG_PACKAGE_ipset-lists is not set
-# CONFIG_PACKAGE_ipt2socks is not set
+CONFIG_PACKAGE_ipt2socks=y
 # CONFIG_PACKAGE_iptraf-ng is not set
 # CONFIG_PACKAGE_iputils-arping is not set
 # CONFIG_PACKAGE_iputils-clockdiff is not set
@@ -4889,7 +4892,7 @@ CONFIG_PACKAGE_iw=y
 # CONFIG_PACKAGE_krb5-client is not set
 # CONFIG_PACKAGE_krb5-libs is not set
 # CONFIG_PACKAGE_krb5-server is not set
-# CONFIG_PACKAGE_libipset is not set
+CONFIG_PACKAGE_libipset=y
 # CONFIG_PACKAGE_linknx is not set
 # CONFIG_PACKAGE_lispd is not set
 # CONFIG_PACKAGE_mac-telnet-client is not set
@@ -4972,7 +4975,7 @@ CONFIG_PACKAGE_ppp-mod-pppoe=y
 # CONFIG_PACKAGE_seafile-server is not set
 # CONFIG_PACKAGE_ser2net is not set
 # CONFIG_PACKAGE_shadowsocksr-libev is not set
-# CONFIG_PACKAGE_shadowsocksr-libev-alt is not set
+CONFIG_PACKAGE_shadowsocksr-libev-alt=y
 CONFIG_PACKAGE_shadowsocksr-libev-server=y
 # CONFIG_PACKAGE_shadowsocksr-libev-ssr-local is not set
 # CONFIG_PACKAGE_simple-adblock is not set
@@ -5308,7 +5311,107 @@ CONFIG_PACKAGE_uboot-envtools=y
 # CONFIG_PACKAGE_coap-client is not set
 # CONFIG_PACKAGE_collectd is not set
 CONFIG_PACKAGE_coremark=y
-# CONFIG_PACKAGE_coreutils is not set
+CONFIG_PACKAGE_coreutils=y
+CONFIG_PACKAGE_coreutils-base64=y
+# CONFIG_PACKAGE_coreutils-basename is not set
+# CONFIG_PACKAGE_coreutils-cat is not set
+# CONFIG_PACKAGE_coreutils-chcon is not set
+# CONFIG_PACKAGE_coreutils-chgrp is not set
+# CONFIG_PACKAGE_coreutils-chmod is not set
+# CONFIG_PACKAGE_coreutils-chown is not set
+# CONFIG_PACKAGE_coreutils-chroot is not set
+# CONFIG_PACKAGE_coreutils-cksum is not set
+# CONFIG_PACKAGE_coreutils-comm is not set
+# CONFIG_PACKAGE_coreutils-cp is not set
+# CONFIG_PACKAGE_coreutils-csplit is not set
+# CONFIG_PACKAGE_coreutils-cut is not set
+# CONFIG_PACKAGE_coreutils-date is not set
+# CONFIG_PACKAGE_coreutils-dd is not set
+# CONFIG_PACKAGE_coreutils-dir is not set
+# CONFIG_PACKAGE_coreutils-dircolors is not set
+# CONFIG_PACKAGE_coreutils-dirname is not set
+# CONFIG_PACKAGE_coreutils-du is not set
+# CONFIG_PACKAGE_coreutils-echo is not set
+# CONFIG_PACKAGE_coreutils-env is not set
+# CONFIG_PACKAGE_coreutils-expand is not set
+# CONFIG_PACKAGE_coreutils-expr is not set
+# CONFIG_PACKAGE_coreutils-factor is not set
+# CONFIG_PACKAGE_coreutils-false is not set
+# CONFIG_PACKAGE_coreutils-fmt is not set
+# CONFIG_PACKAGE_coreutils-fold is not set
+# CONFIG_PACKAGE_coreutils-groups is not set
+# CONFIG_PACKAGE_coreutils-head is not set
+# CONFIG_PACKAGE_coreutils-hostid is not set
+# CONFIG_PACKAGE_coreutils-id is not set
+# CONFIG_PACKAGE_coreutils-install is not set
+# CONFIG_PACKAGE_coreutils-join is not set
+# CONFIG_PACKAGE_coreutils-kill is not set
+# CONFIG_PACKAGE_coreutils-link is not set
+# CONFIG_PACKAGE_coreutils-ln is not set
+# CONFIG_PACKAGE_coreutils-logname is not set
+# CONFIG_PACKAGE_coreutils-ls is not set
+# CONFIG_PACKAGE_coreutils-md5sum is not set
+# CONFIG_PACKAGE_coreutils-mkdir is not set
+# CONFIG_PACKAGE_coreutils-mkfifo is not set
+# CONFIG_PACKAGE_coreutils-mknod is not set
+# CONFIG_PACKAGE_coreutils-mktemp is not set
+# CONFIG_PACKAGE_coreutils-mv is not set
+# CONFIG_PACKAGE_coreutils-nice is not set
+# CONFIG_PACKAGE_coreutils-nl is not set
+# CONFIG_PACKAGE_coreutils-nohup is not set
+# CONFIG_PACKAGE_coreutils-nproc is not set
+# CONFIG_PACKAGE_coreutils-od is not set
+# CONFIG_PACKAGE_coreutils-paste is not set
+# CONFIG_PACKAGE_coreutils-pathchk is not set
+# CONFIG_PACKAGE_coreutils-pinky is not set
+# CONFIG_PACKAGE_coreutils-pr is not set
+# CONFIG_PACKAGE_coreutils-printenv is not set
+# CONFIG_PACKAGE_coreutils-printf is not set
+# CONFIG_PACKAGE_coreutils-ptx is not set
+# CONFIG_PACKAGE_coreutils-pwd is not set
+# CONFIG_PACKAGE_coreutils-readlink is not set
+# CONFIG_PACKAGE_coreutils-realpath is not set
+# CONFIG_PACKAGE_coreutils-rm is not set
+# CONFIG_PACKAGE_coreutils-rmdir is not set
+# CONFIG_PACKAGE_coreutils-runcon is not set
+# CONFIG_PACKAGE_coreutils-seq is not set
+# CONFIG_PACKAGE_coreutils-sha1sum is not set
+# CONFIG_PACKAGE_coreutils-sha224sum is not set
+# CONFIG_PACKAGE_coreutils-sha256sum is not set
+# CONFIG_PACKAGE_coreutils-sha384sum is not set
+# CONFIG_PACKAGE_coreutils-sha512sum is not set
+# CONFIG_PACKAGE_coreutils-shred is not set
+# CONFIG_PACKAGE_coreutils-shuf is not set
+# CONFIG_PACKAGE_coreutils-sleep is not set
+# CONFIG_PACKAGE_coreutils-sort is not set
+# CONFIG_PACKAGE_coreutils-split is not set
+# CONFIG_PACKAGE_coreutils-stat is not set
+# CONFIG_PACKAGE_coreutils-stdbuf is not set
+# CONFIG_PACKAGE_coreutils-stty is not set
+# CONFIG_PACKAGE_coreutils-sum is not set
+# CONFIG_PACKAGE_coreutils-sync is not set
+# CONFIG_PACKAGE_coreutils-tac is not set
+# CONFIG_PACKAGE_coreutils-tail is not set
+# CONFIG_PACKAGE_coreutils-tee is not set
+# CONFIG_PACKAGE_coreutils-test is not set
+# CONFIG_PACKAGE_coreutils-timeout is not set
+# CONFIG_PACKAGE_coreutils-touch is not set
+# CONFIG_PACKAGE_coreutils-tr is not set
+# CONFIG_PACKAGE_coreutils-true is not set
+# CONFIG_PACKAGE_coreutils-truncate is not set
+# CONFIG_PACKAGE_coreutils-tsort is not set
+# CONFIG_PACKAGE_coreutils-tty is not set
+# CONFIG_PACKAGE_coreutils-uname is not set
+# CONFIG_PACKAGE_coreutils-unexpand is not set
+# CONFIG_PACKAGE_coreutils-uniq is not set
+# CONFIG_PACKAGE_coreutils-unlink is not set
+# CONFIG_PACKAGE_coreutils-uptime is not set
+# CONFIG_PACKAGE_coreutils-users is not set
+# CONFIG_PACKAGE_coreutils-vdir is not set
+# CONFIG_PACKAGE_coreutils-wc is not set
+# CONFIG_PACKAGE_coreutils-who is not set
+# CONFIG_PACKAGE_coreutils-whoami is not set
+# CONFIG_PACKAGE_coreutils-yes is not set
 # CONFIG_PACKAGE_crconf is not set
 # CONFIG_PACKAGE_crelay is not set
 # CONFIG_PACKAGE_csstidy is not set
