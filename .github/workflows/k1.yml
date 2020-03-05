@@ -6,7 +6,7 @@
 # Blog: https://p3terx.com
 #=================================================
 
-name: Build OpenWrt for B70
+name: Build OpenWrt for K1
 
 on:
   release:
@@ -15,7 +15,7 @@ on:
     branches:
       - master
     paths:
-      - ".config_b70"
+      - ".config_k1"
   #  schedule:
   #    - cron: 0 8 * * 5
   watch:
@@ -24,10 +24,7 @@ on:
 env:
   REPO_URL_MAIN: https://github.com/coolsnowwolf/lede
   REPO_BRANCH_MAIN: master
-  # 下面这个是有passwall的固件
-  REPO_URL_PASSWALL: https://github.com/Lienol/openwrt
-  REPO_BRANCH_PASSWALL: dev-19.07
-  CONFIG_FILE: .config_b70
+  CONFIG_FILE: .config_k1
   DIY_SH: diy.sh
   SSH_ACTIONS: false
   UPLOAD_BIN_DIR: false
@@ -60,13 +57,6 @@ jobs:
 
       - name: Clone passwall code
         run: cd openwrt/package &&  git clone https://github.com/Lienol/openwrt-package.git
-
-      - name: Clone adguardhome code
-        run: cd openwrt/package &&  git clone https://github.com/rufengsuixing/luci-app-adguardhome.git
-
-      # 将overlay大小由30M改为77M
-      - name: change overlay
-        run: cd openwrt/target/linux/ramips/dts && sed -i 's/0x1E00000/0x4d00000/g' mt7621_hiwifi_hc5962.dts
 
       - name: Update feeds
         run: cd openwrt && ./scripts/feeds update -a
