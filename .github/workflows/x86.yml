@@ -59,16 +59,13 @@ jobs:
         sudo -E apt-get -qq autoremove --purge
         sudo -E apt-get -qq clean
         sudo timedatectl set-timezone "$TZ"
-        mkdir -p /workdir
-        sudo chown $USER:$GROUPS /workdir
 
     - name: Clone source code
-      working-directory: /workdir
       run: |
         df -hT $PWD
         git clone $REPO_URL -b $REPO_BRANCH openwrt
-        mkdir -p /workdir/openwrt/package/custom
-        cd /workdir/openwrt/package/custom
+        mkdir -p openwrt/package/custom
+        cd openwrt/package/custom
         git clone --depth=1 https://github.com/Lienol/openwrt-package
         git clone --depth=1 https://github.com/vernesong/OpenClash.git
         git clone --depth=1 https://github.com/fw876/helloworld.git
@@ -76,8 +73,7 @@ jobs:
         git clone --depth=1 https://github.com/Lienol/openwrt-package.git
         git clone --depth=1 -b 18.06 https://github.com/jerrykuku/luci-theme-argon.git
         git clone --depth=1 https://github.com/rufengsuixing/luci-app-adguardhome.git
-        cd /workdir
-        ln -sf /workdir/openwrt $GITHUB_WORKSPACE/openwrt
+        cd ../../..
 
     - name: Load custom feeds
       run: |
