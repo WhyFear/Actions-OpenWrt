@@ -11,7 +11,6 @@
 name: Build OpenWrt
 
 on:
-  repository_dispatch:
   release:
     types: published
   push:
@@ -21,6 +20,7 @@ on:
       - ".config_x86"
   watch:
     types: started
+  repository_dispatch:
   workflow_dispatch:
     inputs:
       ssh:
@@ -60,7 +60,7 @@ jobs:
         sudo -E apt-get -qq autoremove --purge
         sudo -E apt-get -qq clean
         sudo timedatectl set-timezone "$TZ"
-        sudo mkdir -p /workdir
+        mkdir -p /workdir
         sudo chown $USER:$GROUPS /workdir
 
     - name: Clone source code
@@ -68,14 +68,16 @@ jobs:
       run: |
         df -hT $PWD
         git clone $REPO_URL -b $REPO_BRANCH openwrt
-        sudo mkdir -p /workdir/openwrt/package/custom
+        mkdir -p /workdir/openwrt/package/custom
         cd /workdir/openwrt/package/custom
-        git clone https://github.com/vernesong/OpenClash.git
-        git clone https://github.com/fw876/helloworld.git
-        git clone https://github.com/tty228/luci-app-serverchan.git
-        git clone https://github.com/Lienol/openwrt-package.git
-        git clone https://github.com/jerrykuku/luci-theme-argon.git
-        git clone https://github.com/rufengsuixing/luci-app-adguardhome.git
+        git clone --depth=1 https://github.com/Lienol/openwrt-package
+        git clone --depth=1 https://github.com/vernesong/OpenClash.git
+        git clone --depth=1 https://github.com/fw876/helloworld.git
+        git clone --depth=1 https://github.com/tty228/luci-app-serverchan.git
+        git clone --depth=1 https://github.com/Lienol/openwrt-package.git
+        git clone --depth=1 -b 18.06 https://github.com/jerrykuku/luci-theme-argon.git
+        git clone --depth=1 https://github.com/rufengsuixing/luci-app-adguardhome.git
+        cd /workdir
         ln -sf /workdir/openwrt $GITHUB_WORKSPACE/openwrt
 
     - name: Load custom feeds
