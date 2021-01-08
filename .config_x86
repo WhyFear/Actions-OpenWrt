@@ -1,6 +1,10 @@
 #
 # Automatically generated file; DO NOT EDIT.
+<<<<<<< HEAD
 # OpenWrt Configuration 
+=======
+# OpenWrt Configuration  
+>>>>>>> d28bcb0e6215206bed81b3d63d20a49fd1775ac0
 #
 CONFIG_MODULES=y
 CONFIG_HAVE_DOT_CONFIG=y
