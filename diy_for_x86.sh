@@ -5,7 +5,7 @@
 # Author: P3TERX
 # Blog: https://p3terx.com
 #=================================================
-# Modify default IP
+# Modify default IP x86默认地址为199.2 .1是预留给ap的
 sed -i 's/192.168.1.1/192.168.199.2/g' package/base-files/files/bin/config_generate
 
 # 修改主机名字，把Pakro修改你喜欢的就行（不能纯数字或者使用中文）
