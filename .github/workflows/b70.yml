@@ -202,14 +202,14 @@ jobs:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
     - name: Send compile success message to user via serverchan
-      if: steps.upload.outputs.status == 'success' && !cancelled()
+      if: steps.organize.outputs.status == 'success' && !cancelled()
       env:
         SCKEY: ${{ secrets.SCKEY }}
       run: |
         curl https://sc.ftqq.com/$SCKEY.send?text=compile_successed
 
     - name: Send compile FAILED message to user via serverchan
-      if: steps.upload.outputs.status == 'failure' && !cancelled()
+      if: steps.organize.outputs.status == 'failure' && !cancelled()
       env:
         SCKEY: ${{ secrets.SCKEY }}
       run: |
