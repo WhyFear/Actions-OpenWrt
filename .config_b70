@@ -4531,7 +4531,7 @@ CONFIG_PACKAGE_luci-app-ssr-plus_INCLUDE_Trojan=y
 # CONFIG_PACKAGE_luci-app-udpxy is not set
 # CONFIG_PACKAGE_luci-app-uhttpd is not set
 # CONFIG_PACKAGE_luci-app-unblockmusic is not set
-CONFIG_UnblockNeteaseMusic_Go=y
+# CONFIG_UnblockNeteaseMusic_Go is not set
 # CONFIG_UnblockNeteaseMusic_NodeJS is not set
 # CONFIG_PACKAGE_luci-app-unbound is not set
 CONFIG_PACKAGE_luci-app-upnp=y
@@ -4556,7 +4556,7 @@ CONFIG_PACKAGE_luci-app-zerotier=y
 #
 # 4. Themes
 #
-# CONFIG_PACKAGE_luci-theme-argon is not set
+CONFIG_PACKAGE_luci-theme-argon=y
 # CONFIG_PACKAGE_luci-theme-argon-dark-mod is not set
 CONFIG_PACKAGE_luci-theme-argon-light-mod=y
 # CONFIG_PACKAGE_luci-theme-atmaterial is not set
@@ -5289,9 +5289,6 @@ CONFIG_V2RAY_COMPRESS_UPX=y
 CONFIG_V2RAY_DISABLE_NONE=y
 # CONFIG_V2RAY_DISABLE_CUSTOM is not set
 # end of V2Ray Configuration
-
-# CONFIG_PACKAGE_v2ray-plugin is not set
-CONFIG_v2ray-plugin_INCLUDE_GOPROXY=y
 # end of Project V
 
 #
@@ -5895,6 +5892,7 @@ CONFIG_PACKAGE_uclient-fetch=y
 # CONFIG_PACKAGE_umdns is not set
 # CONFIG_PACKAGE_usbip is not set
 # CONFIG_PACKAGE_uugamebooster is not set
+# CONFIG_PACKAGE_v2ray-plugin is not set
 # CONFIG_PACKAGE_vallumd is not set
 # CONFIG_PACKAGE_verysync is not set
 CONFIG_PACKAGE_vlmcsd=y
