@@ -1,13 +1,5 @@
-# Copyright (c) 2019-2020 P3TERX <https://p3terx.com>
-#
-# This is free software, licensed under the MIT License.
-# See /LICENSE for more information.
-#
-# https://github.com/P3TERX/Actions-OpenWrt
-# Description: Build OpenWrt using GitHub Actions
-#
 
-name: Build OpenWrt for x86
+name: Build OpenWrt for L1Pro
 
 on:
   release:
@@ -16,7 +8,7 @@ on:
     branches:
       - master
     paths:
-      - ".config_x86"
+      - ".config_L1Pro"
   watch:
     types: started
   repository_dispatch:
@@ -31,8 +23,8 @@ env:
   REPO_URL: https://github.com/coolsnowwolf/lede
   REPO_BRANCH: master
   FEEDS_CONF: feeds.conf.default
-  CONFIG_FILE: .config_x86
-  DIY_P1_SH: diy_for_x86.sh
+  CONFIG_FILE: .config_L1Pro
+  DIY_P1_SH: diy_for_L1Pro.sh
   DIY_P2_SH: diy_part2.sh
   UPLOAD_BIN_DIR: false
   UPLOAD_FIRMWARE: true
