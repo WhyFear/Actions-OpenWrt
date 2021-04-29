@@ -3,14 +3,14 @@ name: Test workflow
 on:
   push:
     branches:
-      - main
+      - master
 
 env:
   REPO_URL: https://github.com/coolsnowwolf/lede
   REPO_BRANCH: master
   FEEDS_CONF: feeds.conf.default
   CONFIG_FILE: .config_L1Pro
-  DIY_P1_SH: diy_for_L1Pro.sh
+  DIY_P1_SH: diy.sh
   DIY_P2_SH: diy_part2.sh
   MAKE_ENV_FILE: make.env
   MAKE_SH_FILE: mk_rk3328_l1pro.sh
@@ -44,4 +44,7 @@ jobs:
           mkdir -p opt/tmp
           mv pack/kernel/* opt/kernel/
           [ -e $MAKE_ENV_FILE ] && mv -f pack/$MAKE_ENV_FILE opt/make.env
-          pwd
+          $DIY_P1_SH
+          echo "pause"
+          $GITHUB_WORKSPACE/$DIY_P1_SH
+          

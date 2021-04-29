@@ -58,7 +58,6 @@ jobs:
           git clone --depth=1 https://github.com/tty228/luci-app-serverchan.git
           git clone --depth=1 https://github.com/jerrykuku/luci-theme-argon.git -b 18.06
           git clone --depth=1 https://github.com/rufengsuixing/luci-app-adguardhome.git
-          cd ../../..
 
       - name: Prepare for packing firmware
         if: env.UPLOAD_PACK == 'true' && !cancelled()
@@ -153,7 +152,7 @@ jobs:
           cp ${{ env.FIRMWARE }}/openwrt-armvirt-64-default-rootfs.tar.gz opt/
           cd opt
           chmod +x $MAKE_SH_FILE
-          $MAKE_SH_FILE
+          ./$MAKE_SH_FILE
           echo "IMAGE=$PWD" >> $GITHUB_ENV
           echo "::set-output name=status::success"
 
