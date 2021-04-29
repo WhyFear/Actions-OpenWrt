@@ -68,7 +68,7 @@ jobs:
           mkdir -p opt/tmp
           mv pack/kernel/* opt/kernel/
           ls -al opt/kernel/
-          [ -e $MAKE_ENV_FILE ] && mv -f $MAKE_ENV_FILE opt/make.env
+          [ -e $MAKE_ENV_FILE ] && mv pack/$MAKE_ENV_FILE opt/make.env
 
       - name: Load custom feeds
         run: |
