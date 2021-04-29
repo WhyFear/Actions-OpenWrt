@@ -153,6 +153,7 @@ jobs:
           cd opt
           chmod +x $MAKE_SH_FILE
           ./$MAKE_SH_FILE
+          cd tmp
           echo "IMAGE=$PWD" >> $GITHUB_ENV
           echo "::set-output name=status::success"
 
