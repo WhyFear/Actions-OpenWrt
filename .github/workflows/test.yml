@@ -5,6 +5,22 @@ on:
     branches:
       - master
 
+env:
+  REPO_URL: https://github.com/coolsnowwolf/lede
+  REPO_BRANCH: master
+  FEEDS_CONF: feeds.conf.default
+  CONFIG_FILE: .config_L1Pro
+  DIY_P1_SH: diy_for_L1Pro.sh
+  DIY_P2_SH: diy_part2.sh
+  MAKE_ENV_FILE: make.env
+  MAKE_SH_FILE: mk_rk3328_l1pro.sh
+  PACK_DEVICE_NAME: L1Pro
+  UPLOAD_PACK: true
+  UPLOAD_BIN_DIR: false
+  UPLOAD_FIRMWARE: true
+  UPLOAD_RELEASE: false
+  TZ: Asia/Shanghai
+
 jobs:
   test:
     runs-on: ubuntu-latest
