@@ -22,7 +22,6 @@ jobs:
           id -u
 
       - name: Prepare for packing firmware
-        if: env.UPLOAD_PACK == 'true' && !cancelled()
         run: |
           git clone --depth=1 https://github.com/unifreq/openwrt_packit opt
           mkdir -p opt/kernel
