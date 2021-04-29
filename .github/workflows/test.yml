@@ -3,7 +3,7 @@ name: Test workflow
 on:
   push:
     branches:
-      - main
+      - master
 
 jobs:
   test:
@@ -20,3 +20,13 @@ jobs:
           pwd
           ls -al
           id -u
+
+      - name: Prepare for packing firmware
+        if: env.UPLOAD_PACK == 'true' && !cancelled()
+        run: |
+          git clone --depth=1 https://github.com/unifreq/openwrt_packit opt
+          mkdir -p opt/kernel
+          mkdir -p opt/tmp
+          mv pack/kernel/* opt/kernel/
+          [ -e $MAKE_ENV_FILE ] && mv -f pack/$MAKE_ENV_FILE opt/make.env
+          pwd
