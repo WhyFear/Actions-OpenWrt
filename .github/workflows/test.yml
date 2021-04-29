@@ -1,0 +1,24 @@
+name: Test workflow
+
+on:
+  release:
+    types: published
+  push:
+    branches:
+      - master
+  watch:
+    types: started
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@main
+
+      - name: Initialization environment
+        env:
+          DEBIAN_FRONTEND: noninteractive
+        run: |
+          df -hT $PWD
+          ls -al

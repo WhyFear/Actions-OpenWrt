@@ -21,7 +21,9 @@ env:
   UPLOAD_BIN_DIR: false
   UPLOAD_FIRMWARE: true
   UPLOAD_RELEASE: false
-  SEND_MESSAGE_VIA_PUSHBOT: true
+  UPLOAD_PACK: true
+  MAKE_ENV_FILE: make.env
+  MAKE_SH_FILE: mk_rk3328_l1pro.sh
   TZ: Asia/Shanghai
 
 jobs:
@@ -56,6 +58,12 @@ jobs:
           git clone --depth=1 https://github.com/jerrykuku/luci-theme-argon.git -b 18.06
           git clone --depth=1 https://github.com/rufengsuixing/luci-app-adguardhome.git
           cd ../../..
+
+      - name: Prepare for pack firmware
+        if: env.UPLOAD_PACK == 'true' && !cancelled()
+        run: |
+          git clone --depth=1 https://github.com/unifreq/openwrt_packit opt
+          mkdir -p opt/kernel
 
       - name: Load custom feeds
         run: |
@@ -101,7 +109,7 @@ jobs:
           echo -e "$(nproc) thread compile"
           make -j$(nproc) || make -j1 || make -j1 V=s
           echo "::set-output name=status::success"
-          grep '^CONFIG_TARGET_ARCH_PACKAGES=.*' .config_L1Pro | sed -r 's/.*CONFIG_TARGET_ARCH_PACKAGES="(.*)"/\1/' > DEVICE_NAME
+          grep '^CONFIG_TARGET_ARCH_PACKAGES=.*' .config | sed -r 's/.*CONFIG_TARGET_ARCH_PACKAGES="(.*)"/\1/' > DEVICE_NAME
           [ -s DEVICE_NAME ] && echo "DEVICE_NAME=_$(cat DEVICE_NAME)" >> $GITHUB_ENV
           echo "FILE_DATE=_$(date +"%Y%m%d%H%M")" >> $GITHUB_ENV
 
@@ -133,6 +141,11 @@ jobs:
           name: OpenWrt_firmware${{ env.DEVICE_NAME }}${{ env.FILE_DATE }}
           path: ${{ env.FIRMWARE }}
 
+      - name: Pack the firmware
+        id: pack
+        if: env.UPLOAD_PACK == 'true' && !cancelled()
+        run: |
+
       - name: Generate release tag
         id: tag
         if: env.UPLOAD_RELEASE == 'true' && !cancelled()
@@ -149,7 +162,8 @@ jobs:
         with:
           tag_name: ${{ steps.tag.outputs.release_tag }}
           body_path: release.txt
-          files: ${{ env.FIRMWARE }}/*
+          files: |
+            ${{ env.FIRMWARE }}/*
 
       - name: Delete workflow runs
         uses: GitRML/delete-workflow-runs@main
@@ -167,15 +181,9 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Send compile success message to user via serverchan
-        if: steps.organize.outputs.status == 'success' && !cancelled()
+        if: (!cancelled())
         env:
           SCKEY: ${{ secrets.SCKEY }}
         run: |
-          curl https://sc.ftqq.com/$SCKEY.send?text=compile_successed
-
-      - name: Send compile FAILED message to user via serverchan
-        if: steps.organize.outputs.status == 'failure' && !cancelled()
-        env:
-          SCKEY: ${{ secrets.SCKEY }}
-        run: |
-          curl https://sc.ftqq.com/$SCKEY.send?text=compile_failed
+          [ steps.upload.outputs.status == 'success' ] && curl https://sc.ftqq.com/$SCKEY.send?text=compile_successed
+          [ steps.upload.outputs.status == 'failure' ] && curl https://sc.ftqq.com/$SCKEY.send?text=compile_failed
