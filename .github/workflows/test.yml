@@ -44,7 +44,7 @@ jobs:
           mkdir -p opt/tmp
           mv pack/kernel/* opt/kernel/
           [ -e $MAKE_ENV_FILE ] && mv -f pack/$MAKE_ENV_FILE opt/make.env
-          $DIY_P1_SH
+          ./$DIY_P1_SH
           echo "pause"
           $GITHUB_WORKSPACE/$DIY_P1_SH
           
