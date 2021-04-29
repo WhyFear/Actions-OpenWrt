@@ -1,8 +1,6 @@
 name: Build OpenWrt for L1Pro
 
 on:
-  release:
-    types: published
   push:
     branches:
       - master
