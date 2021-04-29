@@ -64,6 +64,10 @@ jobs:
         run: |
           git clone --depth=1 https://github.com/unifreq/openwrt_packit opt
           mkdir -p opt/kernel
+          mkdir -p opt/tmp
+          mv pack/kernel/* opt/kernel/
+          ls -al opt/kernel/
+          [ -e $MAKE_ENV_FILE ] && mv -f $MAKE_ENV_FILE opt/make.env
 
       - name: Load custom feeds
         run: |
@@ -143,8 +147,22 @@ jobs:
 
       - name: Pack the firmware
         id: pack
-        if: env.UPLOAD_PACK == 'true' && !cancelled()
+        if: env.UPLOAD_PACK == 'true' && steps.organize.outputs.status == 'success' && !cancelled()
         run: |
+          cp ${{ env.FIRMWARE }}/openwrt-armvirt-64-default-rootfs.tar.gz opt/
+          cd opt
+          chmod +x $MAKE_SH_FILE
+          $MAKE_SH_FILE
+          echo "IMAGE=$PWD" >> $GITHUB_ENV
+          echo "::set-output name=status::success"
+
+      - name: Upload packed img
+        id: upload_img
+        uses: actions/upload-artifact@main
+        if: env.UPLOAD_PACK == 'true' && steps.pack.outputs.status == 'success' && !cancelled()
+        with:
+          name: OpenWrt_image${{ env.DEVICE_NAME }}${{ env.FILE_DATE }}
+          path: ${{ env.IMAGE }}
 
       - name: Generate release tag
         id: tag

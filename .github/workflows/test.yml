@@ -1,13 +1,9 @@
 name: Test workflow
 
 on:
-  release:
-    types: published
   push:
     branches:
       - master
-  watch:
-    types: started
 
 jobs:
   test:
@@ -16,9 +12,11 @@ jobs:
       - name: Checkout
         uses: actions/checkout@main
 
-      - name: Initialization environment
+      - name: test
         env:
           DEBIAN_FRONTEND: noninteractive
         run: |
           df -hT $PWD
+          pwd
           ls -al
+          id -u
