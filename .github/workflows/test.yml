@@ -35,7 +35,9 @@ jobs:
           df -hT $PWD
           pwd
           echo "PWD"
-          $PWD
+          echo "$pwd"
+          ls -al $PWD
+          echo "test"
           ls -al
           id -u
 
