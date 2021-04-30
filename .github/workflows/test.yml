@@ -3,7 +3,7 @@ name: Test workflow
 on:
   push:
     branches:
-      - master
+      - main
 
 env:
   REPO_URL: https://github.com/coolsnowwolf/lede
@@ -51,4 +51,3 @@ jobs:
           sed -ri "s#(KERNEL_PKG_HOME=\")[^\"]*#\1$(pwd)/opt/kernel/#" opt/make.env
           cat opt/make.env
           echo "pause"
-          $GITHUB_WORKSPACE/$DIY_P1_SH
