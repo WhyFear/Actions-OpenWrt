@@ -156,7 +156,6 @@ jobs:
           ./$MAKE_SH_FILE
           cd tmp
           echo "IMAGE=$PWD" >> $GITHUB_ENV
-          echo "FINISHED='success'" >> $GITHUB_ENV
           echo "::set-output name=status::success"
 
       - name: Upload packed img
@@ -206,5 +205,6 @@ jobs:
         env:
           SCKEY: ${{ secrets.SCKEY }}
         run: |
-          [ ${{ env.IMAGE }} == 'success' ] && curl https://sc.ftqq.com/$SCKEY.send?text=compile_successed
-          [ ! ${{ env.IMAGE }} == 'success' ] && curl https://sc.ftqq.com/$SCKEY.send?text=compile_failed
+          [ ${{ steps.pack.outputs.status }} == 'success' ] && curl https://sc.ftqq.com/$SCKEY.send?text=compile_successed
+          [ ${{ steps.pack.outputs.status }} == 'failure' ] && curl https://sc.ftqq.com/$SCKEY.send?text=compile_failed
+          echo "::set-output name=status::success"
