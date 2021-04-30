@@ -41,6 +41,7 @@ jobs:
           echo "test"
           ls -al
           id -u
+          echo "FINISHED='success'" >> $GITHUB_ENV
           echo "::set-output name=status::success"
 
       - name: Send compile success message to user via serverchan
@@ -48,5 +49,5 @@ jobs:
         env:
           SCKEY: ${{ secrets.SCKEY }}
         run: |
-          [ steps.test.outputs.status == 'success' ] && curl https://sc.ftqq.com/$SCKEY.send?text=compile_successed
-          [ steps.test.outputs.status == 'failure' ] && curl https://sc.ftqq.com/$SCKEY.send?text=compile_failed
+          [ ${{ env.IMAGE }} == 'success' ] && curl https://sc.ftqq.com/$SCKEY.send?text=compile_successed
+          [ ! ${{ env.IMAGE }} == 'success' ] && curl https://sc.ftqq.com/$SCKEY.send?text=compile_failed
