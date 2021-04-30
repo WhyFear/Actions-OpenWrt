@@ -3,7 +3,7 @@ name: Test workflow
 on:
   push:
     branches:
-      - main
+      - master
 
 env:
   REPO_URL: https://github.com/coolsnowwolf/lede
@@ -29,6 +29,7 @@ jobs:
         uses: actions/checkout@main
 
       - name: test
+        id: test
         env:
           DEBIAN_FRONTEND: noninteractive
         run: |
@@ -40,14 +41,12 @@ jobs:
           echo "test"
           ls -al
           id -u
+          echo "::set-output name=status::success"
 
-      - name: Prepare for packing firmware
+      - name: Send compile success message to user via serverchan
+        if: (!cancelled())
+        env:
+          SCKEY: ${{ secrets.SCKEY }}
         run: |
-          git clone --depth=1 https://github.com/unifreq/openwrt_packit opt
-          mkdir -p opt/kernel
-          mkdir -p opt/tmp
-          mv pack/kernel/* opt/kernel/
-          [ -e $MAKE_ENV_FILE ] && mv -f pack/$MAKE_ENV_FILE opt/make.env
-          sed -ri "s#(KERNEL_PKG_HOME=\")[^\"]*#\1$(pwd)/opt/kernel/#" opt/make.env
-          cat opt/make.env
-          echo "pause"
+          [ steps.test.outputs.status == 'success' ] && curl https://sc.ftqq.com/$SCKEY.send?text=compile_successed
+          [ steps.test.outputs.status == 'failure' ] && curl https://sc.ftqq.com/$SCKEY.send?text=compile_failed
