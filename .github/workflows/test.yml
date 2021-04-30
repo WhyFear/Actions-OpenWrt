@@ -41,7 +41,7 @@ jobs:
           echo "test"
           ls -al
           id -u
-          echo "::set-output name=status::success"
+          echo "::set-output name=status::failure"
 
       - name: Send compile success message to user via serverchan
         if: (!cancelled())
@@ -49,4 +49,5 @@ jobs:
           SCKEY: ${{ secrets.SCKEY }}
         run: |
           [ ${{ steps.test.outputs.status }} == 'success' ] && curl https://sc.ftqq.com/$SCKEY.send?text=compile_successed
-          [ ${{ steps.test.outputs.status }} == 'failed' ] && curl https://sc.ftqq.com/$SCKEY.send?text=compile_failed
+          [ ${{ steps.test.outputs.status }} == 'failure' ] && curl https://sc.ftqq.com/$SCKEY.send?text=compile_failed
+          echo "::set-output name=status::success"
