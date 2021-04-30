@@ -3,7 +3,7 @@ name: Test workflow
 on:
   push:
     branches:
-      - main
+      - master
 
 env:
   REPO_URL: https://github.com/coolsnowwolf/lede
@@ -34,6 +34,8 @@ jobs:
         run: |
           df -hT $PWD
           pwd
+          echo "PWD"
+          $PWD
           ls -al
           id -u
 

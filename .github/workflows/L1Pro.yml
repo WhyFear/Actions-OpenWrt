@@ -67,6 +67,7 @@ jobs:
           mkdir -p opt/tmp
           mv pack/kernel/* opt/kernel/
           [ -e $MAKE_ENV_FILE ] && mv -f pack/$MAKE_ENV_FILE opt/make.env
+          
           echo "::set-output name=status::success"
 
       - name: Load custom feeds
