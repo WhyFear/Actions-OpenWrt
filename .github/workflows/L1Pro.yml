@@ -206,5 +206,5 @@ jobs:
           SCKEY: ${{ secrets.SCKEY }}
         run: |
           [ ${{ steps.pack.outputs.status }} == 'success' ] && curl https://sc.ftqq.com/$SCKEY.send?text=compile_successed
-          [ ${{ steps.pack.outputs.status }} == 'failure' ] && curl https://sc.ftqq.com/$SCKEY.send?text=compile_failed
+          [ ! ${{ steps.pack.outputs.status }} == 'success' ] && curl https://sc.ftqq.com/$SCKEY.send?text=compile_failed
           echo "::set-output name=status::success"

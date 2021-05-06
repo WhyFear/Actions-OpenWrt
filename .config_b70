@@ -137,6 +137,7 @@ CONFIG_TARGET_ramips_mt7621_DEVICE_hiwifi_hc5962=y
 # CONFIG_TARGET_ramips_mt7621_DEVICE_xiaomi_mir3g-v2 is not set
 # CONFIG_TARGET_ramips_mt7621_DEVICE_xiaomi_mir4 is not set
 # CONFIG_TARGET_ramips_mt7621_DEVICE_xiaomi_mi-router-ac2100 is not set
+# CONFIG_TARGET_ramips_mt7621_DEVICE_xiaomi_mi-router-cr6606 is not set
 # CONFIG_TARGET_ramips_mt7621_DEVICE_xiaomi_redmi-router-ac2100 is not set
 # CONFIG_TARGET_ramips_mt7621_DEVICE_youhua_wr1200js is not set
 # CONFIG_TARGET_ramips_mt7621_DEVICE_youku_yk-l2 is not set
@@ -4268,7 +4269,7 @@ CONFIG_PACKAGE_libuv=y
 # CONFIG_PACKAGE_libvpx is not set
 # CONFIG_PACKAGE_libwebcam is not set
 CONFIG_PACKAGE_libwebp=y
-# CONFIG_PACKAGE_libwebsockets-full is not set
+CONFIG_PACKAGE_libwebsockets-full=y
 # CONFIG_PACKAGE_libwebsockets-mbedtls is not set
 # CONFIG_PACKAGE_libwebsockets-openssl is not set
 # CONFIG_PACKAGE_libwrap is not set
@@ -4527,7 +4528,7 @@ CONFIG_PACKAGE_luci-app-ssr-plus_INCLUDE_Trojan=y
 # CONFIG_PACKAGE_luci-app-transmission is not set
 # CONFIG_PACKAGE_luci-app-travelmate is not set
 # CONFIG_PACKAGE_luci-app-trojan-server is not set
-# CONFIG_PACKAGE_luci-app-ttyd is not set
+CONFIG_PACKAGE_luci-app-ttyd=y
 # CONFIG_PACKAGE_luci-app-udpxy is not set
 # CONFIG_PACKAGE_luci-app-uhttpd is not set
 # CONFIG_PACKAGE_luci-app-unblockmusic is not set
@@ -4712,6 +4713,7 @@ CONFIG_PACKAGE_luci-i18n-sqm-zh-cn=y
 # CONFIG_PACKAGE_luci-i18n-sqm-zh-tw is not set
 CONFIG_PACKAGE_luci-i18n-ssr-plus-zh-cn=y
 # CONFIG_PACKAGE_luci-i18n-ssr-plus-zh_Hans is not set
+CONFIG_PACKAGE_luci-i18n-ttyd-zh-cn=y
 # CONFIG_PACKAGE_luci-i18n-upnp-ca is not set
 # CONFIG_PACKAGE_luci-i18n-upnp-cs is not set
 # CONFIG_PACKAGE_luci-i18n-upnp-de is not set
@@ -5680,6 +5682,8 @@ CONFIG_PACKAGE_wpad-openssl=y
 # CONFIG_PACKAGE_apcupsd-cgi is not set
 # CONFIG_PACKAGE_apinger is not set
 # CONFIG_PACKAGE_baidupcs-web is not set
+# CONFIG_BAIDUPCS_WEB_COMPRESS_GOPROXY is not set
+CONFIG_BAIDUPCS_WEB_COMPRESS_UPX=y
 # CONFIG_PACKAGE_banip is not set
 # CONFIG_PACKAGE_batctl-default is not set
 # CONFIG_PACKAGE_batctl-full is not set
@@ -5892,6 +5896,7 @@ CONFIG_PACKAGE_uclient-fetch=y
 # CONFIG_PACKAGE_umdns is not set
 # CONFIG_PACKAGE_usbip is not set
 # CONFIG_PACKAGE_uugamebooster is not set
+# CONFIG_PACKAGE_v2ray-core is not set
 # CONFIG_PACKAGE_v2ray-plugin is not set
 # CONFIG_PACKAGE_vallumd is not set
 # CONFIG_PACKAGE_verysync is not set
@@ -6181,7 +6186,7 @@ CONFIG_PACKAGE_bash=y
 # CONFIG_PACKAGE_setterm is not set
 # CONFIG_PACKAGE_tio is not set
 # CONFIG_PACKAGE_tmux is not set
-# CONFIG_PACKAGE_ttyd is not set
+CONFIG_PACKAGE_ttyd=y
 # CONFIG_PACKAGE_wall is not set
 # end of Terminal
 
